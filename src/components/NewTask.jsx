@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 
-const variants = ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"];
+const variants = ["primary", "secondary", "success", "danger", "warning", "info", "dark"];
 
 const getRandomIntegerInclusive = (min, max) => {
 	min = Math.ceil(min);
@@ -11,14 +11,14 @@ const getRandomIntegerInclusive = (min, max) => {
 };
 
 export default function NewTask(props) {
-	const [text, setText] = useState("");
+	const [text, setText] = useState(""); // Estado que guarda en tiempo real, el valor del input:
 
 	const agregarTarea = () => {
         const random = getRandomIntegerInclusive(0, variants.length);
         const newVariant = variants[random];
-		console.log(text);
-		const nueva_lista_tareas = [...props.tasks, { id: Date.now(), text: text, done: false, variant: newVariant }];
-		props.setTasks(nueva_lista_tareas);
+		const newTask = { id: Date.now(), text: text, done: false, variant: newVariant };
+		const nueva_lista_tareas = [...props.tasks, newTask];
+		props.setTasks(nueva_lista_tareas); // Uso props.setTasks para modificar la lista de tareas de mi padre.
         setText("");
 	};
 

@@ -1,6 +1,9 @@
 main {
   width: 90vw;
   margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .tareas {
