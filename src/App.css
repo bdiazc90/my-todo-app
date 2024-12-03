@@ -1,0 +1,10 @@
+main {
+  width: 90vw;
+  margin: 0px auto;
+}
+
+.tareas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
